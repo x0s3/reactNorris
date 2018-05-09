@@ -1,0 +1,3 @@
+rootProject.name = 'reactNorris'
+
+include ':app'
