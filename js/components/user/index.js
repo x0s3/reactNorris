@@ -45,6 +45,15 @@ class User extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps, nextState) {
+        this.setState({
+            name: nextProps.user.user.name,
+            email: nextProps.user.user.email,
+            phone: nextProps.user.user.phone,
+            location: nextProps.user.user.location,
+        });
+    }
+
     _submitInfo = () => {
         const {name, email, phone, location} = this.state;
         this.setState({disabled: true});
