@@ -11,7 +11,6 @@ YellowBox.ignoreWarnings([
     'Warning: isMounted(...) is deprecated',
     'Module RCTImageLoader',
     'Module RCTSplashScreen',
-    'Class RCTCxxModule'
 ]);
 
 class Main extends Component {

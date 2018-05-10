@@ -6,6 +6,13 @@ This app shows u jokes about our great super hero Chuck Norris from this api: [C
 
 ## Screenshots
 
+![Alt text](/Screenshots/img1.png?raw=true "")
+![Alt text](/Screenshots/img2.png?raw=true "")
+![Alt text](/Screenshots/img3.png?raw=true "")
+![Alt text](/Screenshots/img4.png?raw=true "")
+![Alt text](/Screenshots/img5.png?raw=true "")
+![Alt text](/Screenshots/img6.png?raw=true "")
+![Alt text](/Screenshots/img7.png?raw=true "")
 
 
 ## Installation
