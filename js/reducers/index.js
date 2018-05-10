@@ -4,13 +4,21 @@ import storage from 'redux-persist/lib/storage';
 import jokes from './jokes';
 import user from './user';
 
+const rootPersistConfig = {
+    key: 'root',
+    storage: storage,
+    blacklist: ['jokes']
+};
+
 const jokesPersistConfig = {
     key: 'jokes',
     storage: storage,
-    blacklist: ['fetched_jokes', 'fetching']
+    blacklist: ['fetched_jokes', 'first_fetch']
 };
 
-export default combineReducers({
+const rootReducer = combineReducers({
     jokes: persistReducer(jokesPersistConfig, jokes),
     user
 });
+
+export default persistReducer(rootPersistConfig, rootReducer);

@@ -1,15 +1,14 @@
-import {AsyncStorage} from 'react-native';
 import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
-import {persistStore, persistReducer as persistRed} from 'redux-persist';
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
+import storage from 'redux-persist/lib/storage';
+import {persistStore, persistReducer} from 'redux-persist';
 import reducer from './reducers';
 import promise from './promise';
 
 const persistConfig = {
-    key: 'chuck',
-    storage: AsyncStorage,
-    stateReconciler: autoMergeLevel2,
+    key: 'root',
+    storage,
+    whitelist: ['user']
 };
 
 export default function configureStore() {
@@ -17,10 +16,9 @@ export default function configureStore() {
         applyMiddleware(thunk, promise),
     );
 
-    const persistReducer = persistRed(persistConfig, reducer);
+    const persistedReducer = persistReducer(persistConfig, reducer);
 
-    const store = createStore(persistReducer, enhancer);
-    persistStore(store);
+    const store = createStore(persistedReducer, enhancer);
 
     const persistor = persistStore(store);
 

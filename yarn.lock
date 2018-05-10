@@ -3350,6 +3350,18 @@ lodash-es@^4.17.5:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.10.tgz#62cd7104cdf5dd87f235a837f0ede0e8e5117e05"
 
+lodash.forin@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.forin/-/lodash.forin-4.4.0.tgz#5d3f20ae564011fbe88381f7d98949c9c9519731"
+
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+
+lodash.isempty@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
+
 lodash.pad@^4.1.0:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/lodash.pad/-/lodash.pad-4.5.1.tgz#4330949a833a7c8da22cc20f6a26c4d59debba70"
@@ -3362,6 +3374,14 @@ lodash.padstart@^4.1.0:
   version "4.6.1"
   resolved "https://registry.yarnpkg.com/lodash.padstart/-/lodash.padstart-4.6.1.tgz#d2e3eebff0d9d39ad50f5cbd1b52a7bce6bb611b"
 
+lodash.pickby@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.pickby/-/lodash.pickby-4.6.0.tgz#7dea21d8c18d7703a27c704c15d3b84a67e33aff"
+
+lodash.set@^4.3.2:
+  version "4.3.2"
+  resolved "https://registry.yarnpkg.com/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
+
 lodash.sortby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
@@ -3369,6 +3389,10 @@ lodash.sortby@^4.7.0:
 lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
+
+lodash.unset@^4.5.2:
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/lodash.unset/-/lodash.unset-4.5.2.tgz#370d1d3e85b72a7e1b0cdf2d272121306f23e4ed"
 
 lodash@^3.5.0:
   version "3.10.1"
@@ -4312,6 +4336,12 @@ react-native-easy-grid@0.1.17:
   dependencies:
     lodash "^4.11.1"
 
+react-native-easy-toast@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-easy-toast/-/react-native-easy-toast-1.1.0.tgz#7d3a34ed298d32c4827b8d43ddfab6a71b98a2e3"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-iphone-x-helper@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.0.2.tgz#7dbca530930f7c1ce8633cc8fd13ba94102992e1"
@@ -4323,11 +4353,25 @@ react-native-keyboard-aware-scroll-view@0.5.0:
     prop-types "^15.6.0"
     react-native-iphone-x-helper "^1.0.1"
 
+react-native-orientation-loading-overlay@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/react-native-orientation-loading-overlay/-/react-native-orientation-loading-overlay-0.1.4.tgz#98bd74e13c6f37b75ee0555366f61f1fd799ebaa"
+
 react-native-safe-area-view@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.7.0.tgz#38f5ab9368d6ef9e5d18ab64212938af3ec39421"
   dependencies:
     hoist-non-react-statics "^2.3.1"
+
+react-native-smart-splash-screen@^2.3.5:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/react-native-smart-splash-screen/-/react-native-smart-splash-screen-2.3.5.tgz#68a1e45bfd708678aa12e65f2ba997ac5c1292a0"
+
+react-native-spinkit@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-spinkit/-/react-native-spinkit-1.1.1.tgz#3ae512f3978bc750b7c02639911e1710750d8539"
+  dependencies:
+    prop-types "^15.5.8"
 
 react-native-tab-view@^0.0.74:
   version "0.0.74"
@@ -4429,9 +4473,9 @@ react-navigation-tabs@0.2.0:
     react-native-safe-area-view "^0.7.0"
     react-native-tab-view "~0.0.77"
 
-react-navigation@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-2.0.0.tgz#f3e7ed29dd8366fd3542b6009a4f6ce4ffa37932"
+react-navigation@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-navigation/-/react-navigation-2.0.1.tgz#adeba4eb16307c0f740c6c9efafd0c0aa6d47002"
   dependencies:
     clamp "^1.0.1"
     create-react-context "^0.2.1"
@@ -4545,6 +4589,17 @@ realpath-native@^1.0.0:
   resolved "https://registry.yarnpkg.com/realpath-native/-/realpath-native-1.0.0.tgz#7885721a83b43bd5327609f0ddecb2482305fdf0"
   dependencies:
     util.promisify "^1.0.0"
+
+redux-persist-transform-filter@^0.0.16:
+  version "0.0.16"
+  resolved "https://registry.yarnpkg.com/redux-persist-transform-filter/-/redux-persist-transform-filter-0.0.16.tgz#0c21dc166774c12fb3f090f7a2f5ea90f7ba0cea"
+  dependencies:
+    lodash.forin "^4.4.0"
+    lodash.get "^4.4.2"
+    lodash.isempty "^4.4.0"
+    lodash.pickby "^4.6.0"
+    lodash.set "^4.3.2"
+    lodash.unset "^4.5.2"
 
 redux-persist@^5.9.1:
   version "5.9.1"

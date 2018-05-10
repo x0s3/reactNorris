@@ -24,15 +24,36 @@ export const getJokes = (number = 10) => async (dispatch, getState) => {
         });
         const jokesInfo = await Promise.all(arrayJokes);
         fetchedJokes = jokesInfo.map(data => (
-            {value: data.data.value, id: data.data.id}
+            {value: data.data.value, id: data.data.id.concat(Math.random())}
         ));
     } catch (error) {
         console.warn(error)
     }
     dispatch({
         type: FETCH_JOKES,
-        payload: {fetching: false, fetched_jokes: [...getState().jokes.fetched_jokes, ...fetchedJokes]}
+        payload: {first_fetch: false, fetched_jokes: [...getState().jokes.fetched_jokes, ...fetchedJokes]}
     })
+};
+
+export const saveJoke = ({joke}) => async (dispatch, getState) => {
+    let savedJokes = getState().jokes.saved_jokes;
+    dispatch({
+        type: SAVE_JOKE,
+        payload: {saved_jokes: [...savedJokes, joke]}
+    });
+};
+
+/**
+ * OnLongPress your stored joke it will dispatch this action
+ * */
+export const deleteJoke = ({joke}) => async (dispatch, getState) => {
+    const newJokesSaved = _.filter(getState().jokes.saved_jokes, (currentJoke) => {
+        return currentJoke.id !== joke.id;
+    });
+    dispatch({
+        type: DELETE_JOKE,
+        payload: {saved_jokes: [...newJokesSaved]}
+    });
 };
 
 // ------------------------------------
@@ -40,15 +61,15 @@ export const getJokes = (number = 10) => async (dispatch, getState) => {
 // ------------------------------------
 const ACTION_HANDLERS = {
     [FETCH_JOKES]: (state, action) => Object.assign({}, state, action.payload),
-    [SAVE_JOKE]: (state, action) => Object.assign({}, null, null),
-    [DELETE_JOKE]: (state, action) => Object.assign({}, null, null),
+    [SAVE_JOKE]: (state, action) => Object.assign({}, state, action.payload),
+    [DELETE_JOKE]: (state, action) => Object.assign({}, state, action.payload),
 };
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-/* We are going to persist saved_jokes with redux-persist */
-const initialState = {fetched_jokes: [], fetching: true, saved_jokes: []};
+/* We are going to persist all jokes that the user wants with redux-persist :) */
+const initialState = {fetched_jokes: [], first_fetch: false, saved_jokes: []};
 export default function jokesReducer(state = initialState, action) {
     const handler = ACTION_HANDLERS[action.type];
 

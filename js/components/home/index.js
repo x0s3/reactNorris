@@ -9,15 +9,6 @@ import {getJokes} from '../../reducers/jokes';
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            selected1: "key1"
-        };
-    }
-
-    onValueChange(value: string) {
-        this.setState({
-            selected1: value
-        });
     }
 
     static navigationOptions = {
@@ -27,7 +18,8 @@ class Home extends Component {
     };
 
     componentDidMount() {
-        this.props.getJokes();
+        if (!this.props.jokes.first_fetch)
+            this.props.getJokes();
     }
 
     render() {
