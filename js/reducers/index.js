@@ -1,5 +1,6 @@
-import {combineReducers} from 'redux';
-import {persistReducer} from 'redux-persist';
+import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
+import { reducer as network } from 'react-native-offline';
 import storage from 'redux-persist/lib/storage';
 import jokes from './jokes';
 import user from './user';
@@ -18,7 +19,8 @@ const jokesPersistConfig = {
 
 const rootReducer = combineReducers({
     jokes: persistReducer(jokesPersistConfig, jokes),
-    user
+    user,
+    network
 });
 
 export default persistReducer(rootPersistConfig, rootReducer);

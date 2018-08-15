@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {Provider} from 'react-redux';
-import {PersistGate} from 'redux-persist/es/integration/react';
-import {YellowBox} from 'react-native';
+import React, { Component } from 'react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/es/integration/react';
+import { YellowBox } from 'react-native';
 import SplashScreen from 'react-native-smart-splash-screen';
 import App from './App';
 import configureStore from './configureStore';
-import {ChuckPreparingApp} from './const/LoadingChuck';
+import { ChuckPreparingApp } from './const/LoadingChuck';
 
 YellowBox.ignoreWarnings([
     'Warning: isMounted(...) is deprecated',
@@ -24,7 +24,7 @@ class Main extends Component {
     }
 
     render() {
-        const {store, persistor} = configureStore();
+        const { store, persistor } = configureStore();
         return (
             <Provider store={store}>
                 <PersistGate loading={<ChuckPreparingApp/>} persistor={persistor}>

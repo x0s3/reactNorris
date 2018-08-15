@@ -2473,7 +2473,7 @@ hoek@4.x.x:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/hoek/-/hoek-4.2.1.tgz#9634502aa12c445dd5a7c5734b572bb8738aacbb"
 
-hoist-non-react-statics@^1.0.5:
+hoist-non-react-statics@^1.0.5, hoist-non-react-statics@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-1.2.0.tgz#aa448cf0986d55cc40773b17174b7dd066cb7cfb"
 
@@ -4353,6 +4353,14 @@ react-native-keyboard-aware-scroll-view@0.5.0:
     prop-types "^15.6.0"
     react-native-iphone-x-helper "^1.0.1"
 
+react-native-offline@^3.11.1:
+  version "3.11.1"
+  resolved "https://registry.yarnpkg.com/react-native-offline/-/react-native-offline-3.11.1.tgz#c391115135a0a21c2eade126c43d5acf8ead58e1"
+  dependencies:
+    hoist-non-react-statics "^1.2.0"
+    lodash "^4.17.4"
+    redux-saga "^0.16.0"
+
 react-native-orientation-loading-overlay@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/react-native-orientation-loading-overlay/-/react-native-orientation-loading-overlay-0.1.4.tgz#98bd74e13c6f37b75ee0555366f61f1fd799ebaa"
@@ -4604,6 +4612,10 @@ redux-persist-transform-filter@^0.0.16:
 redux-persist@^5.9.1:
   version "5.9.1"
   resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-5.9.1.tgz#83bd4abd526ef768f63fceee338fa9d8ed6552d6"
+
+redux-saga@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-0.16.0.tgz#0a231db0a1489301dd980f6f2f88d8ced418f724"
 
 redux-thunk@^2.2.0:
   version "2.2.0"

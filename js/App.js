@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import { withNetworkConnectivity } from 'react-native-offline';
 import MainStackRouter from './routers/MainRouterStack';
 
 class App extends Component {
@@ -7,4 +8,6 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withNetworkConnectivity({
+    withRedux: true // It won't inject isConnected as a prop in this case
+})(App);

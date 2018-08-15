@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {Image, TouchableOpacity} from 'react-native';
-import {connect} from 'react-redux';
-import {Container, View, Icon} from 'native-base';
+import React, { Component } from 'react';
+import { Image, TouchableOpacity, Text } from 'react-native';
+import { connect } from 'react-redux';
+import { Container, View, Icon } from 'native-base';
 import PropTypes from 'prop-types';
-import {List} from '../../const/FlatList';
-import {getJokes} from '../../reducers/jokes';
+import { List } from '../../const/FlatList';
+import { getJokes } from '../../reducers/jokes';
 
 class Home extends Component {
     constructor(props) {
@@ -23,11 +23,16 @@ class Home extends Component {
     }
 
     render() {
-        const {navigation, jokes, getJokes} = this.props;
+        const { navigation, jokes, getJokes } = this.props;
         return (
             <Container>
-                <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                    <TouchableOpacity style={{marginTop: 50, paddingBottom: 5}}
+                <Text style={{
+                    alignSelf: 'center',
+                    fontWeight: 'bold',
+                    fontSize: 50
+                }}>Jokes lenght: {jokes.fetched_jokes.length}</Text>
+                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                    <TouchableOpacity style={{ marginTop: 50, paddingBottom: 5 }}
                                       onPress={() => navigation.openDrawer()}>
                         <Image source={require('../../../images/norris_icon.png')}/>
                     </TouchableOpacity>
