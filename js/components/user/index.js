@@ -16,10 +16,10 @@ import {
 } from 'native-base';
 import OrientationLoadingOverlay from 'react-native-orientation-loading-overlay';
 import Toast from 'react-native-easy-toast';
-import {deleteJoke} from '../../reducers/jokes/';
-import {updateUserInfo, generateFakeInfo} from '../../reducers/user/';
-import {ConstHeader} from '../../const/ConstHeader';
-import {List} from '../../const/FlatList';
+import { deleteJoke } from '../../reducers/jokes/';
+import { updateUserInfo, generateFakeInfo } from '../../reducers/user/';
+import { ConstHeader } from '../../const/ConstHeader';
+import { List } from '../../const/FlatList';
 
 class User extends Component {
     constructor(props) {
@@ -55,19 +55,19 @@ class User extends Component {
     }
 
     _submitInfo = () => {
-        const {name, email, phone, location} = this.state;
-        this.setState({disabled: true});
-        let user = {name, email, phone, location};
+        const { name, email, phone, location } = this.state;
+        this.setState({ disabled: true });
+        let user = { name, email, phone, location };
         this.props.updateUserInfo(user);
         this.refs.toast.show('Info updated correctly!', 500);
         setTimeout(() => {
-            this.setState({disabled: false});
+            this.setState({ disabled: false });
         }, 1500)
     };
 
     render() {
-        const {name, email, phone, location, disabled} = this.state;
-        const {generated} = this.props.user;
+        const { name, email, phone, location, disabled } = this.state;
+        const { generated } = this.props.user;
         return (
             <Container>
                 <ConstHeader navigate={this.props.navigation.navigate} text={'User Settings'}/>
@@ -77,7 +77,7 @@ class User extends Component {
                             <Icon name={'contact'}/>
                             <Input
                                 placeholder={'Username'}
-                                onChangeText={(name) => this.setState({name})}
+                                onChangeText={(name) => this.setState({ name })}
                                 value={name}
                             />
                         </Item>
@@ -85,7 +85,7 @@ class User extends Component {
                             <Icon name={'mail'}/>
                             <Input
                                 placeholder={'Email'}
-                                onChangeText={(email) => this.setState({email})}
+                                onChangeText={(email) => this.setState({ email })}
                                 value={email}
                             />
                         </Item>
@@ -93,7 +93,7 @@ class User extends Component {
                             <Icon name={'call'}/>
                             <Input
                                 placeholder={'Phone number'}
-                                onChangeText={(phone) => this.setState({phone})}
+                                onChangeText={(phone) => this.setState({ phone })}
                                 value={phone}
                             />
                         </Item>
@@ -101,7 +101,7 @@ class User extends Component {
                             <Icon name={'compass'}/>
                             <Input
                                 placeholder={'Location'}
-                                onChangeText={(location) => this.setState({location})}
+                                onChangeText={(location) => this.setState({ location })}
                                 value={location}
                                 onSubmitEditing={this._submitInfo}
                             />
@@ -126,7 +126,7 @@ class User extends Component {
                             </View> :
                             <Image
                                 resizeMode={'contain'}
-                                style={{height: 300}}
+                                style={{ height: 300, alignSelf: 'center' }}
                                 source={require('../../../images/no_joke_yet.jpg')}
                             />
                     }

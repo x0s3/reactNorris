@@ -1,6 +1,7 @@
 // ------------------------------------
 // Imports
 // ------------------------------------
+import { NativeModules } from 'react-native';
 import axios from 'axios';
 import _ from 'lodash';
 import { urlApi } from '../../utils/chuckApi';
@@ -40,6 +41,25 @@ export const getJokes = (number = 10) => makeOfflineInterceptable(
         })
     }
 );
+
+export const getGolangJokes = () => makeOfflineInterceptable(
+    async(dispatch, getState) => {
+        let fetchedJokes = [];
+        try {
+            const jokes = await NativeModules.GoNorris.getGoJokes();
+            JSON.parse(jokes).forEach(joke => fetchedJokes.push(joke));
+        } catch (error) {
+            console.warn(error)
+        }
+        dispatch({
+            type: FETCH_JOKES,
+            payload: {
+                first_fetch: false,
+                fetched_jokes: [...getState().jokes.fetched_jokes, ...fetchedJokes]
+            },
+        })
+    }
+)
 
 export const saveJoke = ({ joke }) => async (dispatch, getState) => {
     let savedJokes = getState().jokes.saved_jokes;

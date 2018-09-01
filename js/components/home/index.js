@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Image, TouchableOpacity, Text } from 'react-native';
+import { Image, TouchableOpacity, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { Container, View, Icon } from 'native-base';
+import Spinner from 'react-native-spinkit';
 import PropTypes from 'prop-types';
 import { List } from '../../const/FlatList';
-import { getJokes } from '../../reducers/jokes';
+import { getJokes, getGolangJokes } from '../../reducers/jokes';
 
 class Home extends Component {
     constructor(props) {
@@ -19,18 +20,22 @@ class Home extends Component {
 
     componentDidMount() {
         if (!this.props.jokes.first_fetch)
-            this.props.getJokes();
+            Platform.OS === 'android' ? this.props.getGolangJokes() : this.props.getJokes();
     }
 
     render() {
-        const { navigation, jokes, getJokes } = this.props;
+        const { navigation, jokes, getJokes, getGolangJokes } = this.props;
         return (
             <Container>
-                <Text style={{
+                {
+                    /*
+                        <Text style={{
                     alignSelf: 'center',
                     fontWeight: 'bold',
                     fontSize: 50
-                }}>Jokes lenght: {jokes.fetched_jokes.length}</Text>
+                }}>Jokes lenght: {jokes.fetched_jokes.length}</Text>   
+                    */
+                }
                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
                     <TouchableOpacity style={{ marginTop: 50, paddingBottom: 5 }}
                                       onPress={() => navigation.openDrawer()}>
@@ -40,9 +45,10 @@ class Home extends Component {
                         jokes.fetched_jokes.length > 0 ?
                             <List
                                 data={jokes.fetched_jokes}
-                                moreJokes={getJokes}
+                                moreJokes={Platform.OS === 'android' ? getGolangJokes : getJokes}
                                 nav={navigation}
-                            /> : null
+                            /> : 
+                            <Spinner style={{ alignSelf: 'center' }} isVisible={true} type={'Pulse'} size={100}/>
                     }
                 </View>
             </Container>
@@ -52,11 +58,13 @@ class Home extends Component {
 
 Home.propTypes = {
     jokes: PropTypes.object.isRequired,
-    getJokes: PropTypes.func.isRequired
+    getJokes: PropTypes.func.isRequired,
+    getGolangJokes: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = {
-    getJokes
+    getJokes,
+    getGolangJokes
 };
 
 const mapStateToProps = (state) => ({
