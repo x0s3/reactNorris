@@ -25,11 +25,6 @@ Link native libraries
 ```
 react-native link
 ```
-## Tests
-For testing some redux actions and view
-```
-yarn run test // npm run test
-```
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
