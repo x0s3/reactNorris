@@ -1,5 +1,6 @@
 # React-Norris ![CI status](https://img.shields.io/badge/build-passing-brightgreen.svg)
 
+PoE
 Added redux handle offline actions and new fetching action it works with a native module through golang(works perfectly on a real android device couldnt test it on iphone device) :)
 
 React-Norris is an app made with react-native for both platforms using redux, react-navigation, redux-thunk.
